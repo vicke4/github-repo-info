@@ -29,11 +29,12 @@ function fetchRepoDetails(url, pathArray, rateLimited, withoutToken) {
                 }
 
                 var githubPage = ['pulls', 'issues', 'marketplace', 'explore', 'settings',
-                'contact', 'community', 'about', 'features'].indexOf(pathArray[1]) > -1
+                'contact', 'community', 'about', 'features'].indexOf(pathArray[1]) > -1;
 
                 if (pathArray.length > 2 && !githubPage) {
                     var promptMsg = 'Repository not found. If you want this bookmarklet to work for ' +
-                    'private or private organisation repositories click OK or press ENTER key to read the guide.'
+                    'private or private organisation repositories click OK or press ENTER key to read the guide.';
+
                     if (window.confirm(promptMsg)) {
                         window.open('https://syncwithtech.org/github-repos-size-creation-date/');
                     }
