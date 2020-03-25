@@ -14,8 +14,6 @@ function bytesToSize(bytes) {
 function fetchRepoDetails(url, pathArray, rateLimited, withoutToken) {
     var xmlHttp = new XMLHttpRequest();
 
-    if (!withoutToken) url += '?access_token=fd150cbeb964b8efe662c1883605517387679d20';
-
     xmlHttp.onreadystatechange = function () {
         var resp = null;
         if (xmlHttp.readyState === 4) {
@@ -36,7 +34,7 @@ function fetchRepoDetails(url, pathArray, rateLimited, withoutToken) {
                     'private or private organisation repositories click OK or press ENTER key to read the guide.';
 
                     if (window.confirm(promptMsg)) {
-                        window.open('https://syncwithtech.org/github-repos-size-creation-date/');
+                        window.open('https://syncwithtech.org/github-repos-size-creation-date/#privateorganizationrepositories');
                     }
                 } else {
                     alert('Not a valid GitHub repository page');
@@ -55,6 +53,12 @@ function fetchRepoDetails(url, pathArray, rateLimited, withoutToken) {
     };
 
     xmlHttp.open('GET', url);
+    /**
+     * Uncomment and replace abc with your token in the next line to
+     * make this bookmarklet work for private or private organization respositories
+     *
+     */
+    /* xmlHttp.setRequestHeader('Authorization', 'token abc'); */
     xmlHttp.send();
 }
 
